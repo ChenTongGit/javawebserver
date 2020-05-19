@@ -1,4 +1,4 @@
-package com.ct.server;
+package com.ct.server.servlet;
 
 import java.io.IOException;
 import java.io.InputStream;

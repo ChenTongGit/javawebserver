@@ -1,10 +1,5 @@
 package com.ct.server.servlet;
 
-import com.ct.server.Request;
-import com.ct.server.Response;
-
-import java.io.IOException;
-
 public class LoginServlet implements Servlet {
     @Override
     public void service(Request request, Response response) {
