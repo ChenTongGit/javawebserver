@@ -1,9 +1,9 @@
 package com.ct.server.basic;
 
-import com.ct.server.servlet.Entity;
-import com.ct.server.servlet.Mapping;
-import com.ct.server.servlet.Servlet;
-import com.ct.server.servlet.WebContext;
+import com.ct.server.core.Entity;
+import com.ct.server.core.Mapping;
+import com.ct.server.core.Servlet;
+import com.ct.server.core.WebContext;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

@@ -1,4 +1,4 @@
-package com.ct.server.servlet;
+package com.ct.server.core;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

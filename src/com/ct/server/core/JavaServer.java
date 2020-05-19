@@ -1,19 +1,18 @@
-package com.ct.server.servlet;
+package com.ct.server.core;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
  * 返回响应协议
  */
-public class Server03 {
+public class JavaServer {
     private ServerSocket serverSocket;
     private boolean isRunning;
     public static void main(String[] args) {
-        Server03 server02 = new Server03();
-        server02.start();
+        JavaServer server = new JavaServer();
+        server.start();
     }
 
     //启动服务
@@ -25,6 +24,7 @@ public class Server03 {
         }catch (IOException e){
             e.printStackTrace();
             System.out.println("服务端启动失败");
+            stop();
         }
 
     }

@@ -2,7 +2,7 @@
 <web-app>
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>com.ct.server.servlet.LoginServlet</servlet-class>
+        <servlet-class>com.ct.server.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -12,7 +12,7 @@
 
     <servlet>
         <servlet-name>reg</servlet-name>
-        <servlet-class>com.ct.server.servlet.RegisterServlet</servlet-class>
+        <servlet-class>com.ct.server.RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>reg</servlet-name>

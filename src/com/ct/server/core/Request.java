@@ -1,4 +1,4 @@
-package com.ct.server.servlet;
+package com.ct.server.core;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,43 +53,40 @@ public class Request {
     //分解字符串
     private void parseRequestInfo(){
         System.out.println("----解析字符串-----");
-//        System.out.println(requestInfo);
-        //
+
         System.out.println("---- request method ---- head to st/");
         this.method = this.requestInfo.substring(0,this.requestInfo.indexOf("/")).trim();//第一个/的位置就是method
-//        System.out.println("---+++++==="+this.requestInfo);
-        System.out.println(method);
+        System.out.println("method: " + method);
+
         System.out.println("---- request url ----- st/ to HTTP/----");
         int headIdx = this.requestInfo.indexOf("/")+1;
         int tailIdx = this.requestInfo.indexOf("HTTP/");
         this.url = this.requestInfo.substring(headIdx,tailIdx).trim();
-//        System.out.println(this.requestInfo);
         int queryIdx = this.url.indexOf("?");
-//        System.out.println(queryIdx);
         if (queryIdx>=0) {//存在请求参数
             String[] urlArray = this.url.split("\\?");
-            this.url = urlArray[0];
-            queryStr = urlArray[1];
+            this.url = urlArray[0].trim();
+            queryStr = urlArray[1].trim();
         }
 
 
-        System.out.println(this.url);
+        System.out.println("url: "+this.url);
 
-        System.out.println("--get request args");
+        System.out.println("---get request args----");
 
         if(method.equals("POST")||method.equals("post")){
-            //lastCRLF + post data
             String qStr = this.requestInfo.substring(this.requestInfo.lastIndexOf(CRLF)).trim();
-//            System.out.println("----------"+qStr);
             if (null==queryStr){
                 queryStr = qStr;
             }else {
-                queryStr += "&" +qStr;
+                if (qStr.length()>0){
+                    queryStr += "&" +qStr;
+                }
             }
         }
 
         queryStr = queryStr == null ? "":queryStr;
-        System.out.println("queryStr "+ queryStr);
+        System.out.println("method: "+method+" ---> url: "+url+" ---> queryStr: "+queryStr);
 
         //
         convertMap();
@@ -105,7 +102,6 @@ public class Request {
             String key = kv[0];
             String value = kv[1]==null?null:decode(kv[1],"utf-8");
 
-            System.out.println("convertMap" + "----" + key +" , "+ value);
             if (!parameterMap.containsKey(key)){
                 parameterMap.put(key,new ArrayList<String>());
             }

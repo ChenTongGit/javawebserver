@@ -1,4 +1,4 @@
-package com.ct.server.servlet;
+package com.ct.server.core;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.ct.server.servlet;
+package com.ct.server.core;
 
 public class Entity {
     private String name;

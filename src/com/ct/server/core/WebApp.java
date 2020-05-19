@@ -1,4 +1,4 @@
-package com.ct.server.servlet;
+package com.ct.server.core;
 
 import org.xml.sax.SAXException;
 
@@ -6,8 +6,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 
 public class WebApp {
 //    private static List<Entity> entities;
@@ -31,8 +29,17 @@ public class WebApp {
 
     }
 
-    public static Servlet getServletFromURL(String url) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static Servlet getServletFromURL(String url)  {
         String clazzName = webContext.getClz("/"+url);
-        return (Servlet) Class.forName(clazzName).getConstructor().newInstance();
+
+        try {
+            Class clazz = Class.forName(clazzName);
+            Servlet servlet = (Servlet) clazz.getConstructor().newInstance();
+            return servlet;
+        } catch (Exception e) {
+            return null;
+        }
+
+
     }
 }
