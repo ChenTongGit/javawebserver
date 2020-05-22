@@ -1,4 +1,4 @@
-package com.ct.server.core;
+package com.ct.server.basic;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -10,10 +10,10 @@ import java.net.Socket;
 public class JavaServer {
     private ServerSocket serverSocket;
     private boolean isRunning;
-    public static void main(String[] args) {
-        JavaServer server = new JavaServer();
-        server.start();
-    }
+//    public static void main(String[] args) {
+//        JavaServer server = new JavaServer();
+//        server.start();
+//    }
 
     //启动服务
     public void start(){

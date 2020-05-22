@@ -5,14 +5,16 @@
   <groupId>com.ct</groupId>
   <artifactId>JWebServer</artifactId>
   <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>core</module>
-      <module>sample</module>
-    </modules>
+  <modules>
+    <module>core</module>
+    <module>sample</module>
+  </modules>
 
-    <packaging>pom</packaging>
+  <packaging>pom</packaging>
+  <name>JWebServer</name>
 
-  <name>WebServer</name>
+
+
 
 
 </project>
